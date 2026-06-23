@@ -1,169 +1,145 @@
 # Growth Intelligence Center
 
-Growth Intelligence Center é uma simulação técnica realista de um workspace de analytics, atribuicao, rastreamento e qualidade de dados.
+Plataforma web que simula uma operação real de marketing analytics, rastreamento de conversões, integração com CRM, qualidade dos dados e investigação de discrepâncias.
 
-O projeto foi criado por **felipe virginio** para demonstrar, em um ambiente de produto, como dados podem ser investigados quando campanhas, CRM, eventos e relatórios não contam a mesma historia.
+O objetivo do projeto é mostrar como números que não batem podem ser investigados antes de gerarem decisões erradas.
 
-Este repositório **nao representa um sistema real em producao**. Ele foi pensado para mostrar capacidade de leitura de negocio, engenharia de dados, automacao e investigacao de discrepancias.
+Este repositório **não representa um sistema real em produção**. É uma simulação técnica realista criada para demonstrar habilidades em analytics, rastreamento, qualidade de dados, automação, investigação de discrepâncias e engenharia de software.
 
-## O que e
+## Deploy
 
-Uma interface de produto que simula o fluxo entre captacao de leads, integracoes e camada analitica. A experiencia foi desenhada para parecer um software real: organizado, operativo e focado em diagnostico.
+https://growth-intelligence-center-pink.vercel.app/
 
-## Por que foi criado
+## Screenshots
 
-O projeto existe para demonstrar como uma pessoa pode:
+### 1. Landing page
 
-* identificar discrepancias entre fontes
-* explicar a origem de uma variacao
-* observar qualidade de dados
-* inspecionar eventos e tracking
-* transformar sinais operacionais em decisoes mais confiaveis
+Apresenta o problema central do produto: descobrir por que os números não batem.
 
-O contexto ficticio usado na aplicacao e a **EduGrowth Academy**, com um fluxo de marketing e vendas que passa por Meta Ads, Google Ads, landing page, formulario, CRM, Conversion API, analytics e workspace.
+![Landing page](docs/images/growth_1.png)
 
-## Problema que resolve
+### 2. Workspace analítico
 
-O produto simula um problema comum em marketing analytics: os numeros nao batem entre as ferramentas.
+Visão geral com métricas, funil, alertas e discrepância entre Meta Ads e workspace.
 
-Exemplo principal:
+![Workspace analítico](docs/images/growth_2.png)
 
-* Meta Ads mostra **100 leads**
-* o workspace mostra **130 leads**
+### 3. Investigação raiz
 
-A diferenca pede investigacao para entender se houve:
+Análise da diferença entre 100 leads esperados e 130 leads registrados, separando eventos duplicados, atribuição incorreta e atraso de sincronização.
 
-* leads duplicados
-* atraso de atribuicao
-* falha no CRM
-* evento rejeitado
-* erro de rastreamento
+![Investigação raiz](docs/images/growth_3.png)
 
-## Cenario da EduGrowth Academy
+### 4. Simulador GTM
 
-A EduGrowth Academy representa um caso ficticio de operacao de crescimento com:
+Simulação inspirada no Google Tag Manager Preview / Tag Assistant para acompanhar eventos enviados, duplicados e falhos.
 
-* captacao de leads
-* campanhas pagas
-* rastreamento de eventos
-* sincronizacao com CRM
-* envio para Conversion API
-* leitura em analytics
-* monitoramento no workspace
+![Simulador GTM](docs/images/growth_4.png)
 
-O objetivo e reproduzir um ambiente que pareca real o suficiente para investigar discrepancias sem transformar o produto em um portfolio pessoal.
+### 5. Workflow
 
-## Fluxo de dados
+Fluxo visual simulando webhook, validação, normalização, deduplicação, CRM, Conversion API e Analytics DB.
 
-O fluxo central do projeto segue esta sequencia:
+![Workflow](docs/images/growth_5.png)
 
-`ads -> landing page -> formulario -> webhook -> crm -> conversion api -> analytics -> workspace`
+### 6. Centro de incidentes
 
-Em termos praticos:
+Central para visualizar incidentes, impactos, severidade, responsáveis e ações de investigação.
 
-1. O anuncio gera o clique.
+![Centro de incidentes](docs/images/growth_6.png)
+
+## Problema Que O Projeto Resolve
+
+Em operações de crescimento, é comum que plataformas de mídia, CRM, eventos de tracking e dashboards internos contem histórias diferentes sobre o mesmo funil.
+
+O Growth Intelligence Center simula esse tipo de cenário e mostra uma forma estruturada de investigar:
+
+* por que uma fonte registra mais leads que outra;
+* quais eventos podem estar duplicados;
+* onde a atribuição pode ter sido contaminada;
+* quais integrações podem ter atrasado ou falhado;
+* qual impacto uma divergência pode gerar na leitura do negócio.
+
+A proposta não é vender uma ferramenta pronta, mas demonstrar raciocínio técnico e de produto aplicado a um problema real de analytics.
+
+## Cenário Simulado
+
+O contexto fictício usado no projeto é a **EduGrowth Academy**, uma operação de educação com campanhas pagas, landing page, formulário, CRM, Conversion API, banco analítico e workspace operacional.
+
+O fluxo simulado conecta:
+
+* campanhas de Meta Ads e Google Ads;
+* captura de leads em landing page;
+* envio de eventos por webhook;
+* validação e normalização de payloads;
+* deduplicação;
+* atualização de CRM;
+* envio para Conversion API;
+* consolidação em Analytics DB;
+* investigação no workspace.
+
+Esse cenário foi desenhado para parecer realista o suficiente para sustentar uma investigação técnica, sem depender de dados sensíveis ou de integrações reais de produção.
+
+## Caso Principal: 100 Leads Vs 130 Leads
+
+O caso central do produto é uma discrepância entre fontes:
+
+* **Meta Ads:** 100 leads
+* **Workspace:** 130 leads
+
+A investigação reconstrói essa diferença e separa os principais fatores que explicam o desvio:
+
+* eventos duplicados no tracking;
+* leads orgânicos herdando atribuição paga;
+* atraso de sincronização entre plataforma, CRM e analytics;
+* eventos aceitos no workspace, mas rejeitados ou atrasados em outros destinos.
+
+A narrativa do produto mostra como sair de uma pergunta simples, "por que os números não batem?", para uma análise acionável de causa, impacto e correção.
+
+## Funcionalidades Principais
+
+* **Workspace analítico:** visão consolidada de métricas, funil, alertas e discrepâncias.
+* **Investigação de causa raiz:** decomposição da diferença entre fontes e explicação dos principais desvios.
+* **Simulador GTM:** leitura visual de eventos enviados, duplicados, falhos e seus destinos.
+* **Workflow de dados:** representação do caminho entre webhook, validação, CRM, Conversion API e banco analítico.
+* **Centro de incidentes:** acompanhamento de severidade, impacto, responsáveis e ações de investigação.
+* **Tracking plan:** documentação dos eventos, gatilhos, parâmetros esperados e destinos.
+* **Data Quality Center:** simulação de inconsistências como UTMs ausentes, emails inválidos, duplicidades e falhas de conversão.
+* **SQL Explorer:** área read-only para demonstrar raciocínio analítico sobre campanhas, atribuição, qualidade e incidentes.
+
+## Arquitetura Do Fluxo De Dados
+
+O fluxo principal do projeto segue esta sequência:
+
+```text
+Ads
+  -> Landing page
+  -> Formulário
+  -> Webhook
+  -> Validação
+  -> Normalização
+  -> Deduplicação
+  -> CRM
+  -> Conversion API
+  -> Analytics DB
+  -> Workspace
+```
+
+Em termos práticos:
+
+1. O anúncio gera o clique.
 2. A landing page recebe a visita.
-3. O formulario registra o lead.
+3. O formulário registra o lead.
 4. O webhook envia o evento.
-5. O CRM recebe e atualiza o contato.
-6. A Conversion API replica o evento para as plataformas.
-7. O analytics consolida o dado.
-8. O workspace apresenta a leitura final.
+5. A camada de validação verifica consistência mínima.
+6. A normalização padroniza campos e parâmetros.
+7. A deduplicação reduz contagens infladas.
+8. O CRM recebe ou atualiza o contato.
+9. A Conversion API replica sinais para plataformas de mídia.
+10. O Analytics DB consolida a leitura.
+11. O workspace apresenta métricas, alertas e investigação.
 
-## Principais funcionalidades
-
-* overview operacional com indicadores resumidos
-* investigacao de causa raiz
-* simulador de eventos no GTM preview
-* simulador de incidentes
-* tracking plan
-* sql explorer
-* data quality center
-* attribution center
-* workspace com leitura visual do caso
-
-## Caso principal
-
-O caso central da aplicacao e a divergencia entre fontes:
-
-* Meta Ads: 100 leads
-* Workspace: 130 leads
-
-A tela de root cause analysis reconstrói a diferenca e mostra o que explica a variacao:
-
-* eventos duplicados
-* atribuicao orgânica herdando campanha paga
-* atraso de matching da plataforma
-
-## Investigacao da causa raiz
-
-A investigacao foi desenhada como uma narrativa objetiva:
-
-* problema
-* o que foi encontrado
-* impacto
-* causa
-* como corrigir
-
-Isso ajuda tanto um recrutador quanto uma pessoa sem contexto tecnico a entender o raciocinio sem precisar decodificar termos internos.
-
-## GTM Preview Simulator
-
-Simula o comportamento de uma sessao de preview do Google Tag Manager e deixa visivel:
-
-* evento enviado
-* evento duplicado
-* evento falhou
-* destinos afetados
-* payload e sinais de depuracao
-
-O objetivo e demonstrar leitura de rastreamento sem depender de linguagem excessivamente tecnica.
-
-## Incident Simulator
-
-Gera incidentes operacionais simulados para mostrar como uma falha se propaga entre:
-
-* evento
-* qualidade
-* incidente
-* logs
-* impacto no workspace
-
-## Tracking Plan
-
-O tracking plan documenta os eventos que sustentam a leitura analitica do produto.
-
-Ele serve para mostrar:
-
-* quais eventos existem
-* qual o gatilho de cada evento
-* quais parametros sao esperados
-* para onde os dados vao
-* como validar consistencia
-
-## SQL Explorer
-
-Area de consulta read-only para explorar perguntas analiticas como:
-
-* performance de campanhas
-* atribuicao de leads
-* qualidade de dados
-* investigacao de incidentes
-
-O SQL Explorer nao executa consultas reais de producao. Ele existe para demonstrar raciocinio analitico e governanca.
-
-## Data Quality Center
-
-Central de inconsistencias que ajuda a localizar problemas como:
-
-* leads duplicados
-* UTMs ausentes
-* emails invalidos
-* divergencias de CRM
-* falhas de conversao
-* divergencias de campanha
-
-## Stack utilizada
+## Stack
 
 * React 18
 * TypeScript
@@ -172,9 +148,9 @@ Central de inconsistencias que ajuda a localizar problemas como:
 * React Flow
 * Lucide React
 
-## Como rodar localmente
+## Como Rodar Localmente
 
-Instale as dependencias:
+Instale as dependências:
 
 ```bash
 npm install
@@ -186,20 +162,22 @@ Inicie o ambiente local:
 npm run dev
 ```
 
-## Como fazer build
+Gere o build de produção:
 
 ```bash
 npm run build
 ```
 
-## Proximos passos possiveis
+## Próximos Passos
 
-O projeto ja cobre a experiencia principal. Se houver evolucao futura, os proximos passos naturais seriam:
+Possíveis evoluções para o projeto:
 
-* ampliar cenarios de discrepancia
-* detalhar mais validacoes de tracking
-* enriquecer o catalogo de incidentes simulados
-* adicionar novas variações de consultas analiticas
+* ampliar os cenários de discrepância;
+* detalhar validações de tracking por destino;
+* enriquecer o catálogo de incidentes simulados;
+* adicionar mais consultas analíticas ao SQL Explorer;
+* simular políticas de governança para eventos críticos;
+* criar variações de investigação por canal, campanha e origem.
 
 ## Autor
 
@@ -211,4 +189,3 @@ Links oficiais:
 * GitHub: https://github.com/fezleep
 * LinkedIn: https://www.linkedin.com/in/fezleep/
 * Portfólio: https://portfolio-dev-alpha-eight.vercel.app/
-
